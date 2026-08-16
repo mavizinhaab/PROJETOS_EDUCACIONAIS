@@ -1,0 +1,2168 @@
+/* =========================================================
+   O ÚLTIMO EXPERIMENTO
+   STYLE.CSS
+   TELA 1 = GALÁXIA
+   TELA 2 = LABORATÓRIO
+========================================================= */
+
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --preto: #020308;
+    --azul: #48d9ff;
+    --azul-fraco: #1d718d;
+    --roxo: #9b5cff;
+    --roxo-fraco: #4d2c78;
+
+    --branco: #eaf7ff;
+    --cinza: #8793a3;
+    --metal: #171c24;
+    --metal-claro: #29313c;
+
+    --verde: #55e6a5;
+    --vermelho: #ff5370;
+    --amarelo: #f2d66b;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: var(--preto);
+    color: var(--branco);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow: hidden;
+}
+
+.escondido {
+    display: none !important;
+}
+
+
+/* =========================================================
+   =========================================================
+   TELA INICIAL — GALÁXIA
+   =========================================================
+========================================================= */
+
+.tela-inicial {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 30%,
+            rgba(50, 110, 255, 0.25),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 25%,
+            rgba(145, 55, 255, 0.28),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 80%,
+            rgba(70, 30, 180, 0.25),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #010208,
+            #050716,
+            #02030a
+        );
+}
+
+
+/* =========================================================
+   ESTRELAS
+========================================================= */
+
+.tela-inicial::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -100%;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.95) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(100,220,255,0.9) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(190,120,255,0.9) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        85px 85px,
+        150px 150px,
+        230px 230px;
+
+    background-position:
+        0 0,
+        40px 70px,
+        120px 20px;
+
+    opacity: 0.75;
+
+    animation:
+        estrelasLentas 20s linear infinite;
+
+    pointer-events: none;
+}
+
+
+.tela-inicial::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -100%;
+
+    background-image:
+        radial-gradient(
+            circle,
+            white 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle,
+            #65ddff 1px,
+            transparent 2px
+        );
+
+    background-size:
+        130px 130px,
+        210px 210px;
+
+    opacity: 0.5;
+
+    animation:
+        estrelasRapidas 9s linear infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes estrelasLentas {
+
+    0% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(-120px, 80px);
+    }
+
+    100% {
+        transform:
+            translate(0, 0);
+    }
+}
+
+
+@keyframes estrelasRapidas {
+
+    0% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(180px, -130px);
+    }
+
+    100% {
+        transform:
+            translate(0, 0);
+    }
+}
+
+
+/* =========================================================
+   NEBULOSA
+========================================================= */
+
+.intro {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(700px, 90%);
+
+    text-align: center;
+}
+
+
+.simbolo {
+    font-size: 75px;
+
+    margin-bottom: 20px;
+
+    color: var(--azul);
+
+    text-shadow:
+        0 0 10px var(--azul),
+        0 0 30px var(--azul),
+        0 0 70px var(--roxo);
+
+    animation:
+        pulsarSimbolo 3s ease-in-out infinite;
+}
+
+
+@keyframes pulsarSimbolo {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+.intro h1 {
+    font-family: "Orbitron", Arial, sans-serif;
+
+    font-size: clamp(30px, 6vw, 55px);
+
+    letter-spacing: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            #d2b7ff,
+            var(--roxo),
+            var(--azul)
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        tituloBrilhando 6s linear infinite;
+}
+
+
+@keyframes tituloBrilhando {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 300%;
+    }
+}
+
+
+.subtitulo {
+    margin-top: 12px;
+
+    color: #9ceaff;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+
+.historia {
+    margin: 35px auto;
+
+    padding: 25px;
+
+    max-width: 600px;
+
+    color: #b7c5d8;
+
+    line-height: 1.8;
+
+    background:
+        rgba(5, 8, 25, 0.55);
+
+    border:
+        1px solid
+        rgba(100,180,255,0.2);
+
+    border-radius: 8px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 30px
+        rgba(70,80,220,0.1);
+}
+
+
+/* =========================================================
+   BOTÃO INICIAL
+========================================================= */
+
+.botao-iniciar {
+    position: relative;
+
+    padding: 15px 32px;
+
+    border:
+        1px solid
+        var(--azul);
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40,160,220,0.15),
+            rgba(130,60,220,0.2)
+        );
+
+    color: white;
+
+    font-family: "Orbitron", Arial, sans-serif;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    overflow: hidden;
+}
+
+
+.botao-iniciar:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--roxo);
+
+    box-shadow:
+        0 0 15px
+        rgba(70,210,255,0.5),
+
+        0 0 40px
+        rgba(130,60,255,0.4);
+}
+
+
+.aviso {
+    margin-top: 18px;
+
+    color: #68768b;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   =========================================================
+   TELA 2 — LABORATÓRIO
+   =========================================================
+========================================================= */
+
+
+/* =========================================================
+   ESTRUTURA
+========================================================= */
+
+.jogo {
+
+    width: 100vw;
+
+    height: 100vh;
+
+    background:
+        #080b10;
+}
+
+
+.jogo header {
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        0 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #151b23,
+            #0b0f15
+        );
+
+    border-bottom:
+        2px solid
+        #252d38;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,0.6);
+
+    position: relative;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   LOGO DO LABORATÓRIO
+========================================================= */
+
+.logo {
+
+    font-family:
+        "Orbitron",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color:
+        #bdefff;
+
+    text-shadow:
+        0 0 8px
+        rgba(70,210,255,0.4);
+}
+
+
+.status {
+
+    display: flex;
+
+    gap: 25px;
+
+    font-family:
+        "Orbitron",
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    color: #92a0b2;
+}
+
+
+.status span {
+
+    padding:
+        6px 10px;
+
+    background:
+        #111720;
+
+    border:
+        1px solid
+        #26313e;
+
+    border-radius: 3px;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.jogo main {
+
+    height:
+        calc(100vh - 65px);
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 280px;
+}
+
+
+/* =========================================================
+   LABORATÓRIO
+========================================================= */
+
+.laboratorio {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+
+        /* iluminação do teto */
+
+        radial-gradient(
+            ellipse at 20% 0%,
+            rgba(120,170,210,0.16),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 0%,
+            rgba(100,130,180,0.12),
+            transparent 30%
+        ),
+
+        /* parede */
+
+        linear-gradient(
+            180deg,
+            #20262d 0%,
+            #171c22 65%,
+            #11151a 100%
+        );
+}
+
+
+/* =========================================================
+   PAINÉIS DA PAREDE
+========================================================= */
+
+.laboratorio::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+
+            transparent 0px,
+            transparent 95px,
+
+            rgba(0,0,0,0.15) 96px,
+            rgba(0,0,0,0.15) 98px
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+
+            transparent 0px,
+            transparent 75px,
+
+            rgba(255,255,255,0.025) 76px,
+            rgba(255,255,255,0.025) 77px
+        );
+
+    opacity:
+        0.8;
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   PISO
+========================================================= */
+
+.laboratorio::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 95px;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+
+            #171c21 0px,
+            #171c21 75px,
+
+            #20262d 76px,
+            #20262d 77px
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+
+            transparent 0px,
+            transparent 45px,
+
+            rgba(0,0,0,0.5) 46px
+        );
+
+    border-top:
+        3px solid
+        #0a0d11;
+
+    box-shadow:
+        inset 0 10px 20px
+        rgba(0,0,0,0.5);
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   LUZES DO LABORATÓRIO
+========================================================= */
+
+.luz {
+
+    position: absolute;
+
+    width: 110px;
+
+    height: 5px;
+
+    background:
+        #d8f8ff;
+
+    border-radius:
+        20px;
+
+    box-shadow:
+
+        0 0 8px
+        #8deaff,
+
+        0 0 25px
+        rgba(80,210,255,0.6);
+
+    z-index: 3;
+}
+
+
+.luz1 {
+
+    top: 20px;
+
+    left: 18%;
+}
+
+
+.luz2 {
+
+    top: 20px;
+
+    right: 25%;
+}
+
+
+.luz3 {
+
+    top: 20px;
+
+    left: 55%;
+
+    background:
+        #e8d7ff;
+
+    box-shadow:
+
+        0 0 8px
+        #b77aff,
+
+        0 0 25px
+        rgba(150,80,255,0.5);
+}
+
+
+/* =========================================================
+   OBJETOS DO LABORATÓRIO
+========================================================= */
+
+.objeto {
+
+    position: absolute;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        transform 0.3s,
+        filter 0.3s;
+}
+
+
+.objeto:hover {
+
+    transform:
+        scale(1.06);
+
+    filter:
+
+        drop-shadow(
+            0 0 7px
+            rgba(70,210,255,0.8)
+        )
+
+        drop-shadow(
+            0 0 15px
+            rgba(140,80,255,0.5)
+        );
+}
+
+
+.objeto small {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color:
+        #718094;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   QUADRO CIENTÍFICO
+========================================================= */
+
+.quadro {
+
+    top: 10%;
+
+    left: 8%;
+}
+
+
+.moldura {
+
+    width: 210px;
+
+    height: 135px;
+
+    padding: 10px;
+
+    background:
+        #0c1015;
+
+    border:
+        7px solid
+        #343d48;
+
+    box-shadow:
+
+        inset 0 0 20px
+        rgba(0,0,0,0.8),
+
+        0 8px 15px
+        rgba(0,0,0,0.5);
+}
+
+
+.quadro-conteudo {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    background:
+        #d8ddd9;
+
+    color:
+        #17222a;
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    font-size: 19px;
+}
+
+
+.quadro-conteudo::after {
+
+    content:
+        "F = m × a";
+
+    font-size:
+        25px;
+
+    font-weight:
+        bold;
+}
+
+
+/* =========================================================
+   ARMÁRIO DE LABORATÓRIO
+========================================================= */
+
+.estante {
+
+    left: 5%;
+
+    bottom: 105px;
+}
+
+
+.livros {
+
+    width: 190px;
+
+    height: 190px;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #202832,
+            #12171e
+        );
+
+    border:
+        5px solid
+        #323c48;
+
+    box-shadow:
+
+        0 10px 20px
+        rgba(0,0,0,0.5);
+}
+
+
+.livros::before,
+.livros::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    height: 5px;
+
+    background:
+        #4a5664;
+}
+
+
+.livros::before {
+
+    top: 50%;
+}
+
+
+.livros::after {
+
+    top: 75%;
+}
+
+
+/* =========================================================
+   FRASCOS
+========================================================= */
+
+.livro {
+
+    position: absolute;
+
+    bottom: 5px;
+
+    width: 28px;
+
+    border-radius:
+        3px 3px 0 0;
+
+    box-shadow:
+        inset 5px 0 5px
+        rgba(255,255,255,0.08);
+}
+
+
+.vermelho {
+
+    height: 80px;
+
+    left: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #622a39,
+            #b94e67
+        );
+}
+
+
+.azul {
+
+    height: 110px;
+
+    left: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #174b61,
+            #328cb1
+        );
+}
+
+
+.amarelo {
+
+    height: 70px;
+
+    left: 85px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #665526,
+            #a68c3e
+        );
+}
+
+
+.verde {
+
+    height: 95px;
+
+    left: 120px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #205343,
+            #3c9a79
+        );
+}
+
+
+.roxo {
+
+    height: 85px;
+
+    left: 155px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #452763,
+            #8551b5
+        );
+}
+
+
+/* =========================================================
+   COMPUTADOR
+========================================================= */
+
+.computador {
+
+    right: 27%;
+
+    bottom: 105px;
+}
+
+
+.monitor {
+
+    width: 240px;
+
+    height: 155px;
+
+    padding: 8px;
+
+    background:
+        #080b0f;
+
+    border:
+        5px solid
+        #3c4652;
+
+    border-radius:
+        5px;
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(0,0,0,0.6),
+
+        0 0 20px
+        rgba(50,170,220,0.08);
+}
+
+
+.monitor-tela {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #102c39,
+            #02070b
+        );
+
+    border:
+        1px solid
+        #1b637c;
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(40,190,230,0.15);
+}
+
+
+.terminal {
+
+    color:
+        #63e8ff;
+
+    font-family:
+        monospace;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.6;
+
+    text-shadow:
+        0 0 7px
+        #45d9ff;
+}
+
+
+.terminal span {
+
+    color:
+        #bc8aff;
+}
+
+
+.base-monitor {
+
+    width: 85px;
+
+    height: 20px;
+
+    margin:
+        auto;
+
+    background:
+        #202732;
+
+    border:
+        2px solid
+        #343e4a;
+}
+
+
+/* =========================================================
+   MESA DE LABORATÓRIO
+========================================================= */
+
+.mesa {
+
+    position: absolute;
+
+    left: 35%;
+
+    bottom: 90px;
+
+    width: 320px;
+
+    height: 32px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #414c57,
+            #20262d
+        );
+
+    border:
+        2px solid
+        #525e6b;
+
+    z-index: 5;
+
+    box-shadow:
+
+        0 8px 15px
+        rgba(0,0,0,0.6);
+}
+
+
+.mesa::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 30px;
+
+    width: 18px;
+
+    height: 105px;
+
+    background:
+        #252c34;
+
+    box-shadow:
+        270px 0 0 #252c34;
+}
+
+
+/* =========================================================
+   FRASCO SOBRE A MESA
+========================================================= */
+
+.frasco {
+
+    position: absolute;
+
+    left: 55px;
+
+    bottom: 22px;
+
+    font-size: 45px;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(70,220,255,0.5)
+        );
+}
+
+
+/* =========================================================
+   PAPEL
+========================================================= */
+
+.papel {
+
+    position: absolute;
+
+    left: 150px;
+
+    bottom: 25px;
+
+    font-size: 37px;
+
+    transform:
+        rotate(-7deg);
+}
+
+
+/* =========================================================
+   RELÓGIO CIENTÍFICO
+========================================================= */
+
+.relogio {
+
+    top: 9%;
+
+    right: 10%;
+}
+
+
+.mostrador {
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #101821,
+            #05080c
+        );
+
+    border:
+        5px solid
+        #3b4653;
+
+    color:
+        #63e8ff;
+
+    font-family:
+        "Orbitron",
+        monospace;
+
+    font-size:
+        15px;
+
+    box-shadow:
+
+        inset 0 0 20px
+        rgba(50,200,255,0.12),
+
+        0 0 15px
+        rgba(0,0,0,0.6);
+}
+
+
+/* =========================================================
+   PORTA DE SEGURANÇA
+========================================================= */
+
+.porta {
+
+    left: 47%;
+
+    bottom: 90px;
+}
+
+
+.porta-desenho {
+
+    width: 130px;
+
+    height: 245px;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #141a20,
+            #303944,
+            #151a20
+        );
+
+    border:
+        5px solid
+        #485361;
+
+    box-shadow:
+
+        inset 0 0 30px
+        rgba(0,0,0,0.8),
+
+        0 10px 20px
+        rgba(0,0,0,0.6);
+}
+
+
+.porta-desenho::before {
+
+    content:
+        "⚠  RESTRICTED";
+
+    position: absolute;
+
+    top: 25px;
+
+    left: 0;
+
+    right: 0;
+
+    text-align: center;
+
+    color:
+        #d8c45c;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        2px;
+}
+
+
+.macaneta {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 50%;
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background:
+        #65eaff;
+
+    box-shadow:
+        0 0 10px
+        #4bdcff;
+}
+
+
+/* =========================================================
+   COFRE
+========================================================= */
+
+.cofre {
+
+    right: 7%;
+
+    bottom: 105px;
+}
+
+
+.cofre-corpo {
+
+    width: 165px;
+
+    height: 125px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #252c35,
+            #11161c
+        );
+
+    border:
+        6px solid
+        #485462;
+
+    box-shadow:
+
+        inset 0 0 20px
+        rgba(0,0,0,0.8),
+
+        0 10px 20px
+        rgba(0,0,0,0.6);
+}
+
+
+.cofre-fechadura {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        4px solid
+        #667585;
+
+    color:
+        #b8c8d8;
+
+    font-size:
+        28px;
+
+    background:
+        #11161c;
+}
+
+
+/* =========================================================
+   PAINEL LATERAL
+========================================================= */
+
+.jogo aside {
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #10151c,
+            #080c11
+        );
+
+    border-left:
+        2px solid
+        #242d37;
+
+    padding:
+        18px;
+
+    overflow-y:
+        auto;
+
+    box-shadow:
+        -5px 0 20px
+        rgba(0,0,0,0.4);
+
+    z-index:
+        15;
+}
+
+
+.painel {
+
+    padding:
+        16px;
+
+    margin-bottom:
+        15px;
+
+    background:
+        #11171f;
+
+    border:
+        1px solid
+        #28333f;
+
+    border-radius:
+        5px;
+
+    box-shadow:
+        inset 0 0 15px
+        rgba(0,0,0,0.25);
+}
+
+
+.painel h2 {
+
+    margin-bottom:
+        15px;
+
+    color:
+        #76dff7;
+
+    font-family:
+        "Orbitron",
+        Arial,
+        sans-serif;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        2px;
+}
+
+
+/* =========================================================
+   INVENTÁRIO
+========================================================= */
+
+.inventario {
+
+    min-height:
+        70px;
+}
+
+
+.vazio {
+
+    color:
+        #566475;
+
+    font-size:
+        12px;
+}
+
+
+.item {
+
+    padding:
+        9px;
+
+    margin-bottom:
+        7px;
+
+    background:
+        #171e27;
+
+    border-left:
+        3px solid
+        var(--roxo);
+
+    color:
+        #bbc8d8;
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================================
+   MISSÕES
+========================================================= */
+
+.missao {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        11px;
+
+    color:
+        #6f7d8e;
+
+    font-size:
+        12px;
+}
+
+
+.missao .concluida {
+
+    color:
+        var(--verde);
+
+    text-decoration:
+        line-through;
+
+    text-shadow:
+        0 0 7px
+        rgba(80,230,165,0.3);
+}
+
+
+/* =========================================================
+   BOTÃO DE DICA
+========================================================= */
+
+.botao-dica {
+
+    width:
+        100%;
+
+    padding:
+        12px;
+
+    background:
+        #141b23;
+
+    border:
+        1px solid
+        #354352;
+
+    color:
+        #aebdce;
+
+    border-radius:
+        4px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s;
+}
+
+
+.botao-dica:hover {
+
+    color:
+        white;
+
+    border-color:
+        var(--azul);
+
+    box-shadow:
+        0 0 15px
+        rgba(70,210,255,0.15);
+}
+
+
+/* =========================================================
+   =========================================================
+   MODAL
+   =========================================================
+========================================================= */
+
+.modal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        100;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        rgba(0,0,0,0.75);
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+.modal-conteudo {
+
+    position:
+        relative;
+
+    width:
+        min(600px, 90%);
+
+    max-height:
+        80vh;
+
+    overflow-y:
+        auto;
+
+    padding:
+        30px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #111821,
+            #11121d
+        );
+
+    border:
+        1px solid
+        #344758;
+
+    border-radius:
+        6px;
+
+    box-shadow:
+
+        0 0 30px
+        rgba(50,170,220,0.12),
+
+        0 0 60px
+        rgba(130,70,220,0.08);
+}
+
+
+.fechar {
+
+    position:
+        absolute;
+
+    right:
+        15px;
+
+    top:
+        10px;
+
+    border:
+        none;
+
+    background:
+        none;
+
+    color:
+        #718093;
+
+    font-size:
+        26px;
+
+    cursor:
+        pointer;
+}
+
+
+.fechar:hover {
+
+    color:
+        var(--azul);
+}
+
+
+.modal-conteudo h2 {
+
+    color:
+        #72ddf7;
+
+    margin-bottom:
+        18px;
+
+    font-family:
+        "Orbitron",
+        Arial,
+        sans-serif;
+}
+
+
+.modal-conteudo p {
+
+    color:
+        #b7c3d2;
+
+    line-height:
+        1.7;
+
+    margin-bottom:
+        12px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.resposta {
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
+    margin-top:
+        20px;
+}
+
+
+.resposta input {
+
+    flex:
+        1;
+
+    padding:
+        12px;
+
+    background:
+        #05080c;
+
+    border:
+        1px solid
+        #354554;
+
+    border-radius:
+        4px;
+
+    color:
+        white;
+
+    outline:
+        none;
+
+    text-align:
+        center;
+
+    font-size:
+        16px;
+}
+
+
+.resposta input:focus {
+
+    border-color:
+        var(--azul);
+
+    box-shadow:
+        0 0 10px
+        rgba(70,210,255,0.15);
+}
+
+
+.resposta button {
+
+    padding:
+        12px 18px;
+
+    border:
+        none;
+
+    border-radius:
+        4px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #247b9b,
+            #6744a1
+        );
+
+    color:
+        white;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s;
+}
+
+
+.resposta button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 15px
+        rgba(80,180,255,0.25);
+}
+
+
+.erro {
+
+    margin-top:
+        12px;
+
+    color:
+        var(--vermelho);
+}
+
+
+.sucesso {
+
+    margin-top:
+        12px;
+
+    color:
+        var(--verde);
+}
+
+
+/* =========================================================
+   =========================================================
+   TELA FINAL
+   =========================================================
+========================================================= */
+
+.tela-final {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        200;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(40,120,255,0.2),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 70% 70%,
+            rgba(130,50,220,0.25),
+            transparent 35%
+        ),
+
+        #02030a;
+}
+
+
+.final-conteudo {
+
+    width:
+        min(500px,90%);
+
+    padding:
+        40px;
+}
+
+
+.icone-final {
+
+    font-size:
+        75px;
+
+    margin-bottom:
+        20px;
+
+    filter:
+
+        drop-shadow(
+            0 0 15px
+            var(--azul)
+        )
+
+        drop-shadow(
+            0 0 30px
+            var(--roxo)
+        );
+}
+
+
+.final-conteudo h1 {
+
+    color:
+        #aeeeff;
+
+    font-family:
+        "Orbitron",
+        Arial,
+        sans-serif;
+
+    font-size:
+        36px;
+
+    margin-bottom:
+        15px;
+
+    text-shadow:
+
+        0 0 15px
+        var(--azul),
+
+        0 0 30px
+        var(--roxo);
+}
+
+
+.resultado {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        60px;
+
+    margin:
+        35px 0;
+}
+
+
+.resultado div {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+
+    color:
+        #7e8b9d;
+}
+
+
+.resultado strong {
+
+    color:
+        var(--azul);
+
+    font-family:
+        "Orbitron",
+        Arial,
+        sans-serif;
+}
+
+
+.frase-final {
+
+    color:
+        #8c99aa;
+
+    font-style:
+        italic;
+
+    margin-bottom:
+        25px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .jogo main {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .jogo aside {
+
+        display:
+            none;
+    }
+
+    .laboratorio {
+
+        height:
+            calc(100vh - 65px);
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .status {
+
+        gap:
+            5px;
+
+        font-size:
+            8px;
+    }
+
+    .logo {
+
+        font-size:
+            9px;
+    }
+
+    .historia {
+
+        font-size:
+            13px;
+    }
+
+    .intro h1 {
+
+        font-size:
+            25px;
+    }
+}
