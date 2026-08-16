@@ -1,0 +1,1332 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: 'DM Sans', sans-serif;
+
+    color: #eee6f4;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(112, 35, 103, 0.25),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(80, 35, 105, 0.25),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #090711,
+            #120a18,
+            #0b0712
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   ESTRELAS
+   ===================================================== */
+
+.estrelas {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0.75;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.8) 1px,
+            transparent 1px
+        );
+
+    background-size: 90px 90px;
+
+    animation: estrelasMover 35s linear infinite;
+}
+
+
+.estrelas-2 {
+
+    opacity: 0.4;
+
+    background-size: 150px 150px;
+
+    animation-duration: 55s;
+
+    animation-direction: reverse;
+}
+
+
+.estrelas-3 {
+
+    opacity: 0.25;
+
+    background-size: 220px 220px;
+
+    animation-duration: 70s;
+}
+
+
+@keyframes estrelasMover {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-90px, 70px);
+    }
+
+}
+
+
+/* =====================================================
+   CABEÇALHO
+   ===================================================== */
+
+.cabecalho {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 1150px;
+
+    max-width: calc(100% - 50px);
+
+    margin: 0 auto;
+
+    padding: 30px 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.logo {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #f5d8ef;
+}
+
+
+.logo span {
+
+    color: #d47fc4;
+
+    margin-right: 7px;
+
+}
+
+
+.cabecalho p {
+
+    color: #a99aaa;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+   ===================================================== */
+
+main {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 1150px;
+
+    max-width: calc(100% - 50px);
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero {
+
+    min-height: 570px;
+
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+.hero-texto {
+
+    padding: 20px 0;
+}
+
+
+.etiqueta {
+
+    display: inline-block;
+
+    padding: 8px 13px;
+
+    border: 1px solid rgba(216, 120, 197, 0.35);
+
+    border-radius: 30px;
+
+    color: #d88bc9;
+
+    background: rgba(170, 69, 151, 0.08);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 22px;
+}
+
+
+.hero h1 {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(42px, 5vw, 65px);
+
+    line-height: 1.05;
+
+    font-weight: 600;
+
+    color: #f5edf8;
+
+    margin-bottom: 24px;
+}
+
+
+.hero h1 strong {
+
+    display: block;
+
+    color: #d88bc9;
+}
+
+
+.hero-texto > p {
+
+    max-width: 520px;
+
+    color: #a99cac;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   SISTEMA SOLAR
+   ===================================================== */
+
+.sistema-solar {
+
+    position: relative;
+
+    width: 540px;
+
+    height: 540px;
+
+    max-width: 100%;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =====================================================
+   SOL
+   ===================================================== */
+
+.sol {
+
+    position: absolute;
+
+    width: 68px;
+
+    height: 68px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fffbd0,
+            #ffd968 40%,
+            #f5a52e 72%,
+            #dc701b
+        );
+
+    box-shadow:
+
+        0 0 20px #ffd45c,
+
+        0 0 45px rgba(255, 182, 54, 0.7),
+
+        0 0 90px rgba(255, 140, 40, 0.35);
+
+    z-index: 20;
+
+    animation: pulsarSol 3s ease-in-out infinite;
+}
+
+
+@keyframes pulsarSol {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+
+}
+
+
+/* =====================================================
+   ÓRBITAS
+   ===================================================== */
+
+.orbita {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    padding: 0;
+
+    margin: 0;
+
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    transform-origin: center;
+
+    animation-name: orbitar;
+
+    animation-timing-function: linear;
+
+    animation-iteration-count: infinite;
+
+    outline: none;
+}
+
+
+@keyframes orbitar {
+
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   TAMANHOS DAS ÓRBITAS
+   ===================================================== */
+
+.orbita-mercurio {
+
+    width: 105px;
+    height: 105px;
+
+    margin-left: -52.5px;
+    margin-top: -52.5px;
+
+    animation-duration: 5s;
+
+    z-index: 12;
+}
+
+
+.orbita-venus {
+
+    width: 145px;
+    height: 145px;
+
+    margin-left: -72.5px;
+    margin-top: -72.5px;
+
+    animation-duration: 8s;
+
+    z-index: 11;
+}
+
+
+.orbita-terra {
+
+    width: 190px;
+    height: 190px;
+
+    margin-left: -95px;
+    margin-top: -95px;
+
+    animation-duration: 11s;
+
+    z-index: 10;
+}
+
+
+.orbita-marte {
+
+    width: 240px;
+    height: 240px;
+
+    margin-left: -120px;
+    margin-top: -120px;
+
+    animation-duration: 15s;
+
+    z-index: 9;
+}
+
+
+.orbita-jupiter {
+
+    width: 305px;
+    height: 305px;
+
+    margin-left: -152.5px;
+    margin-top: -152.5px;
+
+    animation-duration: 21s;
+
+    z-index: 8;
+}
+
+
+.orbita-saturno {
+
+    width: 365px;
+    height: 365px;
+
+    margin-left: -182.5px;
+    margin-top: -182.5px;
+
+    animation-duration: 27s;
+
+    z-index: 7;
+}
+
+
+.orbita-urano {
+
+    width: 425px;
+    height: 425px;
+
+    margin-left: -212.5px;
+    margin-top: -212.5px;
+
+    animation-duration: 33s;
+
+    z-index: 6;
+}
+
+
+.orbita-netuno {
+
+    width: 495px;
+    height: 495px;
+
+    margin-left: -247.5px;
+    margin-top: -247.5px;
+
+    animation-duration: 39s;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   PLANETAS
+   ===================================================== */
+
+.planeta {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -1px;
+
+    transform: translateX(-50%);
+
+    display: block;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+/* =====================================================
+   MERCÚRIO
+   ===================================================== */
+
+.mercurio {
+
+    width: 13px;
+    height: 13px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #e9ddd5,
+            #9b877d,
+            #665852
+        );
+
+    box-shadow:
+        0 0 8px rgba(210,190,180,0.7);
+}
+
+
+/* =====================================================
+   VÊNUS
+   ===================================================== */
+
+.venus {
+
+    width: 17px;
+    height: 17px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffe7ae,
+            #d39445,
+            #9c632e
+        );
+
+    box-shadow:
+        0 0 10px rgba(255,190,100,0.6);
+}
+
+
+/* =====================================================
+   TERRA
+   ===================================================== */
+
+.terra {
+
+    width: 21px;
+    height: 21px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #75d1ff,
+            #287ec1 45%,
+            #164b83
+        );
+
+    box-shadow:
+        0 0 13px rgba(70,160,255,0.8);
+}
+
+
+/* =====================================================
+   MARTE
+   ===================================================== */
+
+.marte {
+
+    width: 18px;
+    height: 18px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ff9a78,
+            #bd4b35 60%,
+            #702b25
+        );
+
+    box-shadow:
+        0 0 10px rgba(220,80,50,0.7);
+}
+
+
+/* =====================================================
+   JÚPITER
+   ===================================================== */
+
+.jupiter {
+
+    width: 36px;
+    height: 36px;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #cba77f 0px,
+            #cba77f 5px,
+            #f0d4ab 6px,
+            #a97750 9px
+        );
+
+    box-shadow:
+        0 0 15px rgba(220,180,140,0.5);
+}
+
+
+/* =====================================================
+   SATURNO
+   ===================================================== */
+
+.saturno {
+
+    width: 32px;
+    height: 32px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f0dda9,
+            #b99b65
+        );
+
+    box-shadow:
+        0 0 13px rgba(220,190,130,0.6);
+}
+
+
+.saturno::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 55px;
+
+    height: 16px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-18deg);
+
+    border:
+        3px solid rgba(230,200,145,0.75);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   URANO
+   ===================================================== */
+
+.urano {
+
+    width: 24px;
+    height: 24px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #b4f7f5,
+            #5cb7c0
+        );
+
+    box-shadow:
+        0 0 14px rgba(100,220,230,0.7);
+}
+
+
+/* =====================================================
+   NETUNO
+   ===================================================== */
+
+.netuno {
+
+    width: 23px;
+    height: 23px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #76aaff,
+            #3158ac 60%,
+            #172f6b
+        );
+
+    box-shadow:
+        0 0 15px rgba(70,120,255,0.8);
+}
+
+
+/* =====================================================
+   HOVER
+   ===================================================== */
+
+.orbita:hover .planeta {
+
+    transform:
+        translateX(-50%)
+        scale(1.5);
+
+    filter: brightness(1.35);
+}
+
+
+.orbita:focus-visible {
+
+    box-shadow:
+        0 0 0 2px rgba(225,130,205,0.6);
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+   ===================================================== */
+
+.informacoes {
+
+    position: relative;
+
+    margin-top: 25px;
+
+    padding: 30px;
+
+    border:
+
+        1px solid rgba(220,150,210,0.16);
+
+    border-radius: 28px;
+
+    background:
+        rgba(25,15,31,0.78);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
+}
+
+
+.titulo-secao {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 22px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+
+.titulo-icone {
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    color: #e19bd2;
+
+    background:
+        rgba(216,120,197,0.12);
+
+    font-size: 20px;
+}
+
+
+.titulo-secao h2 {
+
+    color: #f1dff0;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 22px;
+}
+
+
+.titulo-secao p {
+
+    color: #95879a;
+
+    font-size: 13px;
+
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   MENSAGEM INICIAL
+   ===================================================== */
+
+.conteudo-planeta {
+
+    min-height: 300px;
+
+    padding-top: 30px;
+}
+
+
+.mensagem-inicial {
+
+    min-height: 270px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.icone-espaco {
+
+    font-size: 52px;
+
+    margin-bottom: 15px;
+
+    animation:
+        flutuar 3s ease-in-out infinite;
+}
+
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+.mensagem-inicial h3 {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 27px;
+
+    color: #e9cbe5;
+
+    margin-bottom: 10px;
+}
+
+
+.mensagem-inicial p {
+
+    max-width: 500px;
+
+    color: #95899b;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CARD DO PLANETA
+   ===================================================== */
+
+.info-planeta {
+
+    animation:
+        aparecer 0.4s ease;
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.info-topo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+.info-planeta-icone {
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(210,120,190,0.1);
+
+    border:
+        1px solid rgba(220,140,205,0.2);
+
+    font-size: 35px;
+}
+
+
+.info-planeta h3 {
+
+    font-family: 'Playfair Display', serif;
+
+    color: #efcce8;
+
+    font-size: 30px;
+
+    margin-bottom: 5px;
+}
+
+
+.info-planeta .subtitulo {
+
+    color: #a187a2;
+
+    font-size: 13px;
+}
+
+
+.info-planeta > p {
+
+    color: #b5a7b9;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =====================================================
+   GRID DE INFORMAÇÕES
+   ===================================================== */
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 16px;
+}
+
+
+.info-caixa {
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+}
+
+
+.info-caixa h4 {
+
+    color: #db9ccd;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+
+.info-caixa ul {
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.info-caixa li {
+
+    color: #a99baa;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    padding-left: 15px;
+
+    position: relative;
+}
+
+
+.info-caixa li::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    left: 0;
+
+    color: #c978b8;
+}
+
+
+/* =====================================================
+   FILMES E LIVROS
+   ===================================================== */
+
+.obras {
+
+    margin-top: 16px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 16px;
+}
+
+
+.obra {
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(175,75,155,0.10),
+            rgba(90,55,120,0.08)
+        );
+
+    border:
+        1px solid rgba(220,140,205,0.12);
+}
+
+
+.obra h4 {
+
+    color: #e0a2d2;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+
+.obra p {
+
+    color: #a99baa;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   RODAPÉ
+   ===================================================== */
+
+footer {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 1150px;
+
+    max-width: calc(100% - 50px);
+
+    margin: 35px auto 25px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.07);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #807383;
+
+    font-size: 12px;
+}
+
+
+.footer-esquerda {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.footer-esquerda strong {
+
+    color: #d798ca;
+
+    letter-spacing: 2px;
+}
+
+
+.footer-direita strong {
+
+    color: #c98cbd;
+}
+
+
+/* =====================================================
+   RESPONSIVO
+   ===================================================== */
+
+@media (max-width: 950px) {
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-texto {
+
+        text-align: center;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .hero-texto > p {
+
+        max-width: 600px;
+
+    }
+
+
+    .sistema-solar {
+
+        margin-top: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+
+        max-width: calc(100% - 30px);
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        align-items: flex-start;
+
+    }
+
+
+    main {
+
+        max-width: calc(100% - 30px);
+
+    }
+
+
+    .hero {
+
+        min-height: auto;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 42px;
+
+    }
+
+
+    .sistema-solar {
+
+        width: 350px;
+
+        height: 350px;
+
+        transform: scale(0.85);
+
+    }
+
+
+    .info-grid,
+    .obras {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .informacoes {
+
+        padding: 20px;
+
+    }
+
+
+    footer {
+
+        max-width: calc(100% - 30px);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+}

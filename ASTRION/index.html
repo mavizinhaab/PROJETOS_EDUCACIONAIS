@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ASTRION — Explorando o Sistema Solar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- FUNDO -->
+    <div class="estrelas"></div>
+    <div class="estrelas estrelas-2"></div>
+    <div class="estrelas estrelas-3"></div>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+
+        <div class="logo">
+            <span>✦</span>
+            ASTRION
+        </div>
+
+        <p>Uma jornada interativa pelo universo</p>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-texto">
+
+                <span class="etiqueta">
+                    EXPLORAÇÃO ESPACIAL
+                </span>
+
+                <h1>
+                    Conheça os mundos
+                    <strong>do nosso Sistema Solar.</strong>
+                </h1>
+
+                <p>
+                    Explore os planetas, descubra suas características,
+                    curiosidades e conheça filmes e livros que ajudam
+                    a imaginar os mistérios do universo.
+                </p>
+
+            </div>
+
+
+            <!-- SISTEMA SOLAR -->
+            <div class="sistema-solar">
+
+                <!-- SOL -->
+                <div class="sol"></div>
+
+
+                <!-- MERCÚRIO -->
+                <button
+                    class="orbita orbita-mercurio"
+                    onclick="mostrarPlaneta('mercurio')"
+                    aria-label="Explorar Mercúrio">
+
+                    <span class="planeta mercurio"></span>
+
+                </button>
+
+
+                <!-- VÊNUS -->
+                <button
+                    class="orbita orbita-venus"
+                    onclick="mostrarPlaneta('venus')"
+                    aria-label="Explorar Vênus">
+
+                    <span class="planeta venus"></span>
+
+                </button>
+
+
+                <!-- TERRA -->
+                <button
+                    class="orbita orbita-terra"
+                    onclick="mostrarPlaneta('terra')"
+                    aria-label="Explorar Terra">
+
+                    <span class="planeta terra"></span>
+
+                </button>
+
+
+                <!-- MARTE -->
+                <button
+                    class="orbita orbita-marte"
+                    onclick="mostrarPlaneta('marte')"
+                    aria-label="Explorar Marte">
+
+                    <span class="planeta marte"></span>
+
+                </button>
+
+
+                <!-- JÚPITER -->
+                <button
+                    class="orbita orbita-jupiter"
+                    onclick="mostrarPlaneta('jupiter')"
+                    aria-label="Explorar Júpiter">
+
+                    <span class="planeta jupiter"></span>
+
+                </button>
+
+
+                <!-- SATURNO -->
+                <button
+                    class="orbita orbita-saturno"
+                    onclick="mostrarPlaneta('saturno')"
+                    aria-label="Explorar Saturno">
+
+                    <span class="planeta saturno"></span>
+
+                </button>
+
+
+                <!-- URANO -->
+                <button
+                    class="orbita orbita-urano"
+                    onclick="mostrarPlaneta('urano')"
+                    aria-label="Explorar Urano">
+
+                    <span class="planeta urano"></span>
+
+                </button>
+
+
+                <!-- NETUNO -->
+                <button
+                    class="orbita orbita-netuno"
+                    onclick="mostrarPlaneta('netuno')"
+                    aria-label="Explorar Netuno">
+
+                    <span class="planeta netuno"></span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMAÇÕES -->
+        <section class="informacoes">
+
+            <div class="titulo-secao">
+
+                <div class="titulo-icone">
+                    ✦
+                </div>
+
+                <div>
+
+                    <h2>
+                        Explore um planeta
+                    </h2>
+
+                    <p>
+                        Escolha qualquer planeta para começar sua viagem.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTEÚDO -->
+            <div
+                id="conteudo-planeta"
+                class="conteudo-planeta">
+
+                <div class="mensagem-inicial">
+
+                    <div class="icone-espaco">
+                        🪐
+                    </div>
+
+                    <h3>
+                        Para onde vamos?
+                    </h3>
+
+                    <p>
+                        Escolha um planeta no sistema solar
+                        e descubra o que existe além da Terra.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <div class="footer-esquerda">
+
+            <strong>ASTRION</strong>
+
+            <span>
+                Projeto acadêmico educacional
+            </span>
+
+        </div>
+
+
+        <div class="footer-direita">
+
+            Criado por
+            <strong>
+                Maria Vitória de Abreu
+            </strong>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
